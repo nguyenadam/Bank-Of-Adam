@@ -31,13 +31,17 @@
 
     <v-main class="">
         <router-view></router-view>
+
     </v-main>
+
   </v-app>
 </template>
 
 <script>
 
+  import SpeedDial from "@/components/SpeedDial";
   export default {
+    components: {SpeedDial},
     data: () => ({
       links: [
         ['Overview', '/'],
