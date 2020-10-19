@@ -9,6 +9,7 @@
 
         </v-sheet>
       </v-col>
+      <pre>{{$store.state.todo}}</pre>
 
       <v-col  class="card-list flex-grow-1" style="flex-direction:column">
 

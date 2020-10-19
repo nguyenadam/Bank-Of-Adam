@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { vuexfireMutations, firestoreAction } from 'vuexfire'
+import { db } from '@/db'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    todos: [],
+    user: null,
     accounts: [
       {
         name: "Account 1",
@@ -15,6 +19,8 @@ export default new Vuex.Store({
             from: "Account 1",
             to: "Account 3",
             amount: 100,
+            memo: "",
+            date: "",
           },
           {
             from: "Account 1",
@@ -43,9 +49,16 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    ...vuexfireMutations,
   },
   actions: {
+    bindTodos: firestoreAction(({ bindFirestoreRef }) => {
+      // return the promise returned by `bindFirestoreRef`
+      return bindFirestoreRef('user', db.collection('users').doc("3hqzYxgnoBforZJuQjon"))
+    }),
   },
   modules: {
   }
 })
+
+

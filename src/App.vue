@@ -14,8 +14,8 @@
         color="grey darken-1"
       >
         <v-tab
-          v-for="link in links"
-          :key="link"
+          v-for="(link, i) in links"
+          :key="i"
           :to="link[1]"
         >
           {{ link[0] }}
@@ -42,6 +42,9 @@
   import SpeedDial from "@/components/SpeedDial";
   export default {
     components: {SpeedDial},
+    created(){
+      this.$store.dispatch('bindTodos')
+    },
     data: () => ({
       links: [
         ['Overview', '/'],
