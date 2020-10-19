@@ -6,8 +6,8 @@
         <v-expansion-panel-header class="text-overline" :v-model="[0]">Quick Actions</v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-list-item
-              v-for="link in links"
-              :key="link"
+              v-for="(link, i) in links"
+              :key="i"
               :to="link[1]"
           >
             <v-list-item-icon>
