@@ -11,11 +11,17 @@ const routes = [
     path: '/',
     name: 'Overview',
     component: Overview
-  },  
+  },
   {
     path: '/accounts',
     name: 'Accounts',
     component: Accounts
+  },
+  {
+    path: '/accounts/:id',
+    name: 'Accounts',
+    component: Accounts,
+    props: true
   },
   {
     path: '/rewards',

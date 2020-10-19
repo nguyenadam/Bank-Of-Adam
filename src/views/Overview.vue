@@ -18,17 +18,17 @@
 
         >
           <v-col
-              v-for="n in 3"
-              :key="n"
+              v-for="(account, i) in $store.state.accounts"
+              :key="i"
               class="col-12 col-lg-6 flex-grow-1"
           >
             <v-card elevation="2" >
               <v-card-text>
                 <div>
-                  <span class="text-h6">Primary Account  </span>
-                  <span class="text-overline">...1234</span>
+                  <span class="text-h6">{{ account.name }}  </span>
+                  <span class="text-overline">...{{ account.number }}</span>
                 </div>
-                <p class="text-h2 mb-0">₳ 420</p>
+                <p class="text-h2 mb-0">₳ {{ account.balance }}</p>
                 <!--            <div class="text--primary">-->
                 <!--                well meaning and kindly.-->
                 <!--                <br />"a benevolent smile"-->
@@ -43,7 +43,7 @@
 
           </v-col>
 
-          <v-col class="flex-grow-1 text-center">
+          <v-col class="col-12 col-lg-6 flex-grow-1 flex-grow-1 text-center">
               <v-btn
                   elevation="0"
                   color="darkgrey"
